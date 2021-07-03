@@ -1,0 +1,273 @@
+#----------- Normal pyramid
+import bpy 
+import random
+
+#numbers boolean to generate cubes 2 = blank and 1 = black
+numbers = [1,1,2]
+
+#height = heigth + 1
+height = 6
+#number of cubes per grid
+num_of_cubes = height * 2 +1 
+
+#size of the cube
+size_of_cube = 1
+
+#position
+x = size_of_cube/2
+y = size_of_cube/2
+z = size_of_cube/2
+
+#materials
+materials_list = ['Material.001'] #transparent material
+
+materials_list_2 = ['Material.003','Material.002']  #color materials
+
+#materials_list_2 = ['Material.002','Material.003','Material.004','Material.005','Material.006','Material.007']  #color 
+
+#variable counter for position in x move inside piramid
+a = 0
+
+#This loop is for X, Y and Z axis generation cubes
+for m in range(0,height + 1):  #z axisS
+    
+    for n in range(0,num_of_cubes):  #y axis
+            
+        #reset position z     
+        x = size_of_cube/2 + a
+        
+        for i in range(0,num_of_cubes):  #x axis
+            
+            #insert cube
+            bpy.ops.mesh.primitive_cube_add(size=size_of_cube , enter_editmode=False, align='WORLD',          location=(x,y,z), scale=(1, 1, 1))
+
+            #Materials random
+            
+            if random.choice(numbers) == 1:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials[random.choice(materials_list_2)])
+            
+            else:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials["Material.001"])
+            
+           
+            
+                     
+                
+            x += size_of_cube
+                
+                
+        y += size_of_cube
+        
+    #move inside piramid    
+    a += size_of_cube
+    #move in z
+    z += size_of_cube
+    #reset position y
+    y = size_of_cube/2 + a
+    #change number of cubes
+    num_of_cubes -= 2
+    
+
+#----------- Inverted pyramid
+import bpy 
+import random
+
+#numbers boolean to generate cubes 2 = blank and 1 = black
+numbers = [1,1,2]
+
+#height
+height = 6
+#number of cubes per grid
+num_of_cubes = 1 
+
+#size of the cube
+size_of_cube = 1
+
+#position
+x = size_of_cube/2
+y = size_of_cube/2
+z = size_of_cube/2
+
+#materials
+materials_list = ['Material.001'] #transparent material
+
+materials_list_2 = ['Material.002','Material.003']  #color materials
+
+#materials_list_2 = ['Material.002','Material.003','Material.004','Material.005','Material.006','Material.007']  #color 
+
+#variable counter to go outside piramid
+a = 0
+
+
+#This loop is for X, Y and Z axis generation cubes
+for m in range(0,height+1):  #z axis
+    
+    for n in range(0,num_of_cubes):  #y axis
+            
+        #reset position x     
+        x = size_of_cube/2 - a
+        
+        for i in range(0,num_of_cubes):  #x axis
+            
+            #insert cube
+            bpy.ops.mesh.primitive_cube_add(size=size_of_cube , enter_editmode=False, align='WORLD',          location=(x,y,z), scale=(1, 1, 1))
+
+            #Materials random
+            
+            if random.choice(numbers) == 1:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials[random.choice(materials_list_2)])
+            
+            else:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials["Material.001"])
+            
+           
+            
+                     
+                
+            x += size_of_cube
+                
+                
+        y += size_of_cube
+        
+    #move outside00 piramid x  and y     
+    a += size_of_cube
+    #move in z axis
+    z += size_of_cube
+    #reset position y
+    y = size_of_cube/2 - a
+    #change number of cubes
+    num_of_cubes += 2
+    
+
+#----------- Complete pyramid
+import bpy 
+import random
+
+#numbers boolean to generate cubes 2 = blank and 1 = black
+numbers = [1,1,2]
+#height
+height = 6
+#number of cubes per grid
+num_of_cubes = 1 
+
+#size of the cube
+size_of_cube = 1
+
+#position
+x = size_of_cube/2
+y = size_of_cube/2
+z = size_of_cube/2
+
+#materials
+materials_list = ['Material.001'] #transparent material
+
+materials_list_2 = ['Material.002','Material.003']  #color materials
+
+#materials_list_2 = ['Material.002','Material.003','Material.004','Material.005','Material.006','Material.007']  #color 
+
+#variable counter to move outside of piramid
+a = 0
+
+#count cubes
+cubes = 0
+
+#This loop is for X, Y and Z axis generation cubes
+for m in range(0,height+1):  #z axis
+    
+    for n in range(0,num_of_cubes):  #y axis
+            
+        #reset position x     
+        x = size_of_cube/2 - a
+        
+        for i in range(0,num_of_cubes):  #x axis
+            
+            #insert cube
+            bpy.ops.mesh.primitive_cube_add(size=size_of_cube , enter_editmode=False, align='WORLD',          location=(x,y,z), scale=(1, 1, 1))
+
+            #Materials random
+            
+            if random.choice(numbers) == 1:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials[random.choice(materials_list_2)])
+            
+            else:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials["Material.001"])
+            
+           
+            
+                     
+                
+            x += size_of_cube
+                
+                
+        y += size_of_cube
+        
+    #move outside piramid x and y    
+    a += size_of_cube
+    #move in z axis
+    z += size_of_cube
+    #reset position y
+    y = size_of_cube/2 - a
+    #change number of cubes
+    num_of_cubes += 2
+
+
+
+#----------------------------- Normal pyramid
+
+#number of cubes per grid
+num_of_cubes = height * 2 +1 
+
+#position
+z = height+1.5
+y = size_of_cube/2 -height
+
+#variable counter move inside pyramid
+a = 0
+
+#This loop is for X, Y and Z axis generation cubes
+for m in range(0,height+1):  #z axis
+    
+    for n in range(0,num_of_cubes):  #y axis
+            
+        #reset position z     
+        x = size_of_cube/2 + a -height
+        
+        for i in range(0,num_of_cubes):  #x axis
+            
+            #insert cube
+            bpy.ops.mesh.primitive_cube_add(size=size_of_cube , enter_editmode=False, align='WORLD',          location=(x,y,z), scale=(1, 1, 1))
+
+            #Materials random
+            
+            if random.choice(numbers) == 1:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials[random.choice(materials_list_2)])
+            
+            else:
+                item = bpy.context.object
+                item.data.materials.append(bpy.data.materials["Material.001"])
+            
+           
+            
+                     
+                
+            x += size_of_cube
+                
+                
+        y += size_of_cube
+        
+    #move inside x and y    
+    a += size_of_cube
+    #move in z axis
+    z += size_of_cube
+    #reset position x and y
+    y = size_of_cube/2 + a -height
+    #change number of cubes
+    num_of_cubes -= 2
+      
